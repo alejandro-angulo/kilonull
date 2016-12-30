@@ -1,0 +1,154 @@
+// Breakpoints
+@screen-xs: 768px;
+@screen-sm: 768px;
+@screen-md: 992px;
+@screen-lg: 1200px;
+
+// Sizing
+@footer-height: 60px;
+
+// Colors
+//  Taken from mdbootstrap's dark theme colors
+@black: #212121;
+@black-light: #2E2E2E;
+@blue: #1C2331;
+@blue-light: #3F729B;
+@gray: #3E4551;
+@gray-light: #4B515D;
+@slate: #263238;
+@slate-light: #37474F;
+@white: #FFFFFF;
+@post-color: #C3C3C3;
+@danger: #CC0000;
+@danger-light: #FF4444;
+@warning: #FF8800;
+@warning-light: #FFBB33;
+@success: #007E33;
+@success-light: #00C851;
+
+
+// Underline Reveal (from hover.css)
+.hover-underline-reveal (@color, @height: 4px, @duration: 0.3s) {
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: @color;
+    height: @height;
+    transform: translateY(@height);
+    transition-property: transform;
+    transition-duration: @duration;
+    transition-timing-function: ease-out;
+  }
+
+  &:hover:before,
+  &:focus:before,
+  &:active:before {
+    transform: translateY(0);
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background: @black-light;
+  margin-bottom: @footer-height;
+}
+
+#main-header {
+  background: @slate;
+
+  .navbar-brand {
+    color: @white;
+    font-weight: bold;
+
+    &:hover {
+      background: @slate-light;
+      color: @black;
+    }
+  }
+
+  nav&.navbar-inverse .navbar-nav {
+    & > li > a { .hover-underline-reveal(@white); }
+    li a {
+      color: @white;
+      display: inline-block;
+      width: 100%;
+    }
+
+    li.active a {
+      background: linear-gradient(to bottom, @slate-light 0, @gray 100%);
+    }
+  }
+
+  .navbar-toggle { background: rgba(0, 0, 0, 0.4); }
+}
+
+#main-content {
+  margin-top: 60px;
+}
+
+#main-footer {
+  background: @slate;
+  border-top: 5px solid @slate-light;
+  bottom: 0;
+  height: @footer-height;
+  padding: 1em;
+  position: absolute;
+  width: 100%;
+}
+
+.post {
+  color: @post-color;
+
+  h2 {
+    margin-bottom: 0;
+
+    a {
+      color: @blue-light;
+      display: inline-block;
+      padding: 3px 5px;
+      width: 100%;
+
+      &:hover {
+        background: @gray;
+        text-decoration: none;
+      }
+    }
+  }
+  .meta { margin-bottom: 0; }
+}
+
+.pagination {
+  color: @white;
+}
+
+.alert { color: @white; }
+.alert-success {
+  background: @success;
+  border-color: @success-light;
+}
+.alert-warning {
+  background: @warning;
+  border-color: @warning-light;
+}
+.alert-danger {
+  background: @danger;
+  border-color: @danger-light;
+}
+
+.codesnip pre {
+  backrgound: @black;
+  font-family: Inconsolata, Menlo, Monaco, Consolas, "Courier New", monospace;
+}

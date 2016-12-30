@@ -1,0 +1,26 @@
+{% extends 'kilonull/base.html' %}
+{% block title %}Welcome to my blog{% endblock %}
+
+{% block content %}
+<div class="post-listing container">
+{% if posts %}
+  {% for post in posts %}
+    <div class="row">
+      <div class="post .col-md-12">
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      <p class="meta text-muted">{{ post.published }} ({{ post.slug }})</p>
+        <div class="excerpt">
+        {{ post.body|safe|truncatewords:30 }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <div class="alert alert-danger" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hiddne="true"></span>
+    <span class="sr-only">Error:</span>
+    No posts found.
+  </div>
+{% endif %}
+</div>
+{% endblock %}
