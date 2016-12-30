@@ -12,8 +12,8 @@ setup(
     install_requires=[
         'djangorestframework',
         'django-static-precompiler',
-        # 'django-codesnip',
-        # 'django-shortcodes',
+        'django-codesnip',
+        'django-codetalker',
     ],
     version='0.1',
     packages=find_packages(),
@@ -22,7 +22,7 @@ setup(
     license='LGPLv3',
     description="kilonull's Django app",
     long_description=README,
-    # url='https://github.com/vacuus/django-codesnip',
+    url='https://github.com/vacuus/kilonull',
     author='Alejandro Angulo',
     author_email='aab.j13@gmail.com',
     classifiers=[
