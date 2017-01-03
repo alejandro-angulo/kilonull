@@ -4,7 +4,10 @@ from kilonull.models import Category, Post
 
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
-    url = serializers.HyperlinkedIdentityField(view_name="blog:post-detail")
+    url = serializers.HyperlinkedIdentityField(
+        view_name="kilonull:view_blog_post",
+        lookup_field="slug",
+    )
     path = serializers.SerializerMethodField('find_path')
     read_only = True
 
@@ -14,7 +17,7 @@ class PostSerializer(serializers.HyperlinkedModelSerializer):
                   'hide_listing', 'path',)
 
     def find_path(self, obj):
-        return reverse('blog:view_blog_post', kwargs={'slug': obj.slug})
+        return reverse('kilonull:view_blog_post', kwargs={'slug': obj.slug})
 
 
 class CategorySerializer(serializers.HyperlinkedModelSerializer):
