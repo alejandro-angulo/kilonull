@@ -4,8 +4,7 @@ __pycache__
 # Distribution/packaging
 dist/
 build/
-*.egg
-*.egg-info
+*.egg*
 
 # Coverage reports
 htmlcov/
