@@ -15,8 +15,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_pytest',
     'kilonull',
-    'codesnip',
-    'shortcodes',
 ]
 
 ROOT_URLCONF = 'tests.urls'

@@ -11,11 +11,13 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'published', 'slug']
     search_fields = ['title', 'body']
     date_hierarchy = 'published'
-    exclude = ('author',)
+    exclude = ('author', 'body_html')
 
     def save_model(self, request, obj, form, change):
-        if not change:
-            obj.author = request.user
+        # if not change:
+        #     obj.author = request.user
+        # obj.parse_body_markdown()
+        obj.author = request.user
         obj.save()
 
 

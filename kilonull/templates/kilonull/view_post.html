@@ -7,6 +7,6 @@
   <div class="post">
     <h2>{{ post.title }}</h2>
     <p class="meta text-muted">{{ post.published }} ({{ post.slug }})</p>
-    {{ post.body|expand_shortcodes|safe }}
+    {{ post.body_html|safe }}
   </div>
 {% endblock %}
