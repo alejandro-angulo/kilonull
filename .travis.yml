@@ -1,7 +1,9 @@
 language: python
 
 python:
+  - "3.6"
   - "3.5"
+  - "3.4"
 
 env:
     - TOX_ENV=py36-django19
