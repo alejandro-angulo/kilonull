@@ -3,13 +3,20 @@ language: python
 python:
   - "3.6"
 
-env:
-    - TOX_ENV=py36-django19
-    - TOX_ENV=py35-django19
-    - TOX_ENV=py34-django19
-    - TOX_ENV=py36-django110
-    - TOX_ENV=py35-django110
-    - TOX_ENV=py34-django110
+matrix:
+  include:
+    - python: 3.6
+      env:
+        - TOX_ENV=py36-django19
+        - TOX_ENV=py36-django110
+    - python: 3.5
+      env:
+        - TOX_ENV=py35-django19
+        - TOX_ENV=py35-django110
+    - python: 3.4
+      env:
+        - TOX_ENV=py34-django19
+        - TOX_ENV=py34-django110
 
 install:
   - pip install -r requirements.txt
