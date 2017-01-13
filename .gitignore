@@ -16,3 +16,7 @@ cover/
 # virtualenv
 env/
 venv/
+
+# Testing
+.tox/
+db.sqlite3
