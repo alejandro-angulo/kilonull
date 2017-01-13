@@ -1,7 +1,6 @@
 language: python
 
-python:
-  - "3.6"
+python: nightly
 
 matrix:
   include:
@@ -17,6 +16,8 @@ matrix:
       env:
         - TOX_ENV=py34-django19
         - TOX_ENV=py34-django110
+  exclude:
+    - python: nightly
 
 install:
   - pip install -r requirements.txt
