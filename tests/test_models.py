@@ -53,6 +53,19 @@ class TestPostModel(TestCase):
 
         assert post.body_html == expected_html
 
+    def test_markdown_highlighting_no_lang(self):
+        user = User.objects.get(username='test')
+        post_args = {
+            'slug': 'test_slug',
+            'author': user,
+            'body': '```alert(s);```',
+        }
+        post = Post.objects.create(**post_args)
+        post.save()
+        expected_html = '<p><code>alert(s);</code></p>\n'
+
+        assert post.body_html == expected_html
+
 
 class TestCategoryModel(TestCase):
     def setUp(self):
