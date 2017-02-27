@@ -32,6 +32,20 @@ def view_post(request, slug):
     }
     return render(request, 'kilonull/view_post.html', context)
 
+
+def view_category(request, slug):
+    context = {
+        'category': get_object_or_404(Category, slug=slug)
+    }
+    return render(request, 'kilonull/view_category.html', context)
+
+
+def view_tag(request, slug):
+    context = {
+        'tag': get_object_or_404(Tag, slug=slug)
+    }
+    return render(request, 'kilonull/view_tag.html', context)
+
 ###
 # API Endpoints
 ###
