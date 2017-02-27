@@ -26,6 +26,17 @@ class TestPostModel(TestCase):
 
         assert '{}'.format(post) == 'test_slug'
 
+    def test_absolute_url(self):
+        user = User.objects.get(username='test')
+        post_args = {
+            'slug': 'test_slug',
+            'author': user,
+        }
+        post = Post.objects.create(**post_args)
+
+        url = post.get_absolute_url()
+        assert '{}'.format(url) == '/post/{}/'.format(post_args['slug'])
+
     def test_markdown_highlighting(self):
         user = User.objects.get(username='test')
         post_args = {
@@ -44,17 +55,45 @@ class TestPostModel(TestCase):
 
 
 class TestCategoryModel(TestCase):
-    def test_string_representation(self):
-        category = Category.objects.create(slug="test_slug")
+    def setUp(self):
+        Category.objects.create(slug='test_slug')
 
-        assert '{}'.format(category) == 'test_slug'
+    def tearDown(self):
+        Category.objects.get(slug='test_slug').delete()
+
+    def test_string_representation(self):
+        slug = 'test_slug'
+        category = Category.objects.get(slug=slug)
+
+        assert '{}'.format(category) == slug
+
+    def test_absolute_url(self):
+        slug = 'test_slug'
+        category = Category.objects.get(slug=slug)
+
+        assert '{}'.format(category.get_absolute_url()) == \
+            '/category/{}/'.format(slug)
 
 
 class TestTagModel(TestCase):
-    def test_string_representation(self):
-        tag = Tag.objects.create(slug="test_slug")
+    def setUp(self):
+        Tag.objects.create(slug='test_slug')
 
-        assert '{}'.format(tag) == 'test_slug'
+    def tearDown(self):
+        Tag.objects.get(slug='test_slug').delete()
+
+    def test_string_representation(self):
+        slug = 'test_slug'
+        tag = Tag.objects.get(slug=slug)
+
+        assert '{}'.format(tag) == slug
+
+    def test_absolute_url(self):
+        slug = 'test_slug'
+        tag = Tag.objects.get(slug=slug)
+
+        tag.get_absolute_url()
+        assert '{}'.format(tag.get_absolute_url()) == '/tag/{}/'.format(slug)
 
 
 class TestMenuModel(TestCase):

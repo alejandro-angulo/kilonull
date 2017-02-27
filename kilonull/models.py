@@ -43,7 +43,8 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     def get_absolute_url(self):
-        return reverse('kilonull:view_blog_category', kwargs={'slug': self.slug})
+        return reverse('kilonull:view_blog_category',
+                       kwargs={'slug': self.slug})
 
 
 class Tag(models.Model):
@@ -54,7 +55,7 @@ class Tag(models.Model):
         return '{}'.format(self.slug)
 
     def get_absolute_url(self):
-        return reverse('kilonull:view_blog_tag', args=(self.slug))
+        return reverse('kilonull:view_blog_tag', kwargs={'slug': self.slug})
 
 
 class Menu(models.Model):
