@@ -16,4 +16,6 @@ def runtests():
 
 
 if __name__ == '__main__':
+    if len(sys.argv) == 2:
+        PYTEST_ARGS = ['-k', sys.argv[1]] + PYTEST_ARGS
     runtests()
