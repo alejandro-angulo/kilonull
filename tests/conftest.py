@@ -7,6 +7,8 @@ SECRET_KEY = 'fake-key'
 
 DEBUG = True
 
+ALLOWED_HOSTS = ['testserver']
+
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -15,9 +17,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_pytest',
     'kilonull',
+    'static_precompiler',
 ]
 
 ROOT_URLCONF = 'tests.urls'
+
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 TEMPLATES = [
     {
