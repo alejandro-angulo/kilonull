@@ -24,8 +24,6 @@ def get_menu(menu_slug, curr_page):
     for item in menu_items:
         html += "<li"
         match = path.match(item.link_url)
-        print(curr_page)
-        print(match)
         if match and match.group(1) == curr_page:
             html += " class='active'"
         html += "><a href='%s'>%s</a></li>" % (item.link_url, item.link_text)
