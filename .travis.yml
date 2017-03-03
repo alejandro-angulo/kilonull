@@ -20,8 +20,11 @@ matrix:
     - python: nightly
 
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y node-less
+  # Install the Less compiler
+  # Need npm first ( https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions )
+  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - sudo npm install -g less
 
 install:
   - pip install -r requirements.txt
