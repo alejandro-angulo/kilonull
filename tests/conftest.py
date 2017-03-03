@@ -23,7 +23,7 @@ INSTALLED_APPS = [
 ROOT_URLCONF = 'tests.urls'
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATES = [
     {
