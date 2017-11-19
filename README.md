@@ -1,4 +1,4 @@
-kilonull
+kilonull [![Build Status](https://travis-ci.org/vacuus/kilonull.svg?branch=master)](https://travis-ci.org/vacuus/kilonull)
 ========
 
 kilonull is the Django app behind the blog on kilonull.com .
