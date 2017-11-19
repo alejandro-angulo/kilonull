@@ -10,7 +10,7 @@
       <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
       <p class="meta text-muted">{{ post.published }} ({{ post.slug }})</p>
         <div class="excerpt">
-        {{ post.body|safe|truncatewords:30 }}
+        {{ post.body_html|safe|truncatewords:30 }}
         </div>
       </div>
     </div>

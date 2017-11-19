@@ -11,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     body = models.TextField()
     body_html = models.TextField()
-    published = models.DateField(db_index=True, auto_now_add=True)
+    published = models.DateTimeField(db_index=True, auto_now_add=True)
     category = models.ManyToManyField('Category', blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
     hide_listing = models.BooleanField(default=False)

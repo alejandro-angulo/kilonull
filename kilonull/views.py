@@ -7,7 +7,7 @@ from kilonull.serializers import CategorySerializer, PostSerializer
 
 
 def index(request):
-    post_list = Post.objects.filter(hide_listing=False).order_by('-published')
+    post_list = Post.objects.filter(hide_listing=False).order_by('published')
     paginator = Paginator(post_list, 5)
 
     page = request.GET.get('page')
