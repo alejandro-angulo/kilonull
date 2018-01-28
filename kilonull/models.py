@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from kilonull import utils
 import mistune
@@ -8,7 +8,7 @@ import mistune
 class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, models.CASCADE)
     body = models.TextField()
     body_html = models.TextField()
     published = models.DateTimeField(db_index=True, auto_now_add=True)
@@ -68,7 +68,7 @@ class Menu(models.Model):
 
 
 class MenuItem(models.Model):
-    menu = models.ForeignKey(Menu)
+    menu = models.ForeignKey(Menu, models.CASCADE)
     order = models.IntegerField()
     link_url = models.CharField(max_length=255)
     link_text = models.CharField(max_length=255)
