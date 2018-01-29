@@ -24,3 +24,6 @@ db.sqlite3
 # Compiled static files
 /static
 /kilonull/static/static
+
+# IDE files
+.idea/

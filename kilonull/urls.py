@@ -1,4 +1,4 @@
-from django.conf.urls import include, url
+from django.urls import include, re_path
 from rest_framework.routers import DefaultRouter
 from kilonull.views import (
     index,
@@ -13,11 +13,12 @@ router = DefaultRouter()
 router.register(r'posts', PostViewSet)
 # router.register(r'categories', CategoryViewSet)
 
+app_name = 'kilonull'
 urlpatterns = [
-    url(r'^$', index, name='index'),
-    url(r'^post/(?P<slug>[^\.]+)/$', view_post, name='view_blog_post'),
-    url(r'^category/(?P<slug>[^\.]+)/$', view_category,
+    re_path(r'^$', index, name='index'),
+    re_path(r'^post/(?P<slug>[^\.]+)/$', view_post, name='view_blog_post'),
+    re_path(r'^category/(?P<slug>[^\.]+)/$', view_category,
         name='view_blog_category'),
-    url(r'^tag/(?P<slug>[^\.]+)/$', view_tag, name='view_blog_tag'),
-    url(r'^api/', include(router.urls)),
+    re_path(r'^tag/(?P<slug>[^\.]+)/$', view_tag, name='view_blog_tag'),
+    re_path(r'^api/', include(router.urls)),
 ]

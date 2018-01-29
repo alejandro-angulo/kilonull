@@ -5,11 +5,7 @@ kilonull is the Django app behind the blog on kilonull.com .
 
 **This app requires:**
 * [djangorestframework](http://www.django-rest-framework.org/)
-* [django-codetalker](https://github.com/vacuus/django-codetalker)
-* [django-codesnip](https://github.com/vacuus/django-codesnip)
 * [django-staticprecompiler](https://django-static-precompiler.readthedocs.io/en/stable/)
-
-Detailed documentation is in the "docs" directory.
 
 Quick start
 -----------

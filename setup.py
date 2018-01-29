@@ -15,7 +15,7 @@ setup(
         'django-static-precompiler',
         'mistune',
     ],
-    version='0.2.1',
+    version='0.3.0',
     packages=find_packages(),
     include_package_data=True,
     test_suite='runtests.runtests',
